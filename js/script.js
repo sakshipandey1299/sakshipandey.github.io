@@ -174,7 +174,7 @@
         // Uses a double threshold trigger system to completely stop bouncing & flickering loops
         const observerOptions = {
             root: null, // Viewport
-            rootMargin: '0px 0px -10% 0px', // Slight offset at the bottom to trigger early
+            rootMargin: '0px 0px 20% 0px', // Slight offset at the bottom to trigger early
             threshold: [0.10, 0.40] // [Exit threshold (10%), Entry threshold (40%)]
         };
 
