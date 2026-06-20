@@ -1,364 +1,410 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+   /* --- 1. CORE VARIABLES & LUXURY FOUNDATIONS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0d0e10; /* Keeps the rest of the site seamlessly dark */
-    color:#a39e93;
-    line-height: 1.7;
-    margin: 0;
-    padding: 0;
-}
+        :root {
+            --bg-color: #0d0e10; /* Soft obsidian black */
+            --silk-ivory: #f4f0e6; /* Soft silk tone for headers */
+            --stone-gray: #a39e93; /* Muted warm gray for descriptions */
+            --accent-gold: #dfba73; /* Champagne gold accent */
+            --panel-dark: #141619; /* Lighter obsidian for nested panels */
+            --transition-glide: 1.4s cubic-bezier(0.16, 1, 0.3, 1); /* Majestic, slow transition speed */
+        }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0e10; /* Keeps the rest of the site seamlessly dark */
+            color: #a39e93;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    
-    /* The background color and blur */
-    background: rgba(12, 13, 15, 0.7); 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    
-    /* The magic fade: Opaque at the top (0%), fading to transparent at the bottom (100%) */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-    /* Remove any solid borders so the blend is perfectly seamless */
-    border-bottom: none; 
-    padding: 1.5rem 4rem 2.5rem 4rem; /* Added a bit more padding at the bottom for the fade radius */
-}
+        /* --- 2. PREMIUM TRANSLUCENT GRADIENT HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            
+            /* The background color and blur */
+            background: rgba(12, 13, 15, 0.7); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            
+            /* The magic fade: Opaque at the top (0%), fading to transparent at the bottom (100%) */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-}
+            /* Remove any solid borders so the blend is perfectly seamless */
+            border-bottom: none; 
+            padding: 1.5rem 4rem 2.5rem 4rem; /* Added a bit more padding at the bottom for the fade radius */
+        }
 
-.logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: #e5dfd3; /* Soft platinum/ivory tint */
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: #e5dfd3; /* Soft platinum/ivory tint */
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+        }
 
-.nav-links a {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #8c877e; /* Muted stone gray */
-    transition: color 0.4s ease, text-shadow 0.4s ease;
-}
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-.nav-links a:hover {
-    color: #fffdf9; /* Bright ivory */
-    text-shadow: 0 0 8px rgba(223, 186, 115, 0.4); /* Subtle golden aura */
-}
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #8c877e; /* Muted stone gray */
+            text-decoration: none;
+            transition: color 0.4s ease, text-shadow 0.4s ease;
+        }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 8%;
-}
+        .nav-links a:hover {
+            color: #fffdf9; /* Bright ivory */
+            text-shadow: 0 0 8px rgba(223, 186, 115, 0.4); /* Subtle golden aura */
+        }
 
-.hero-section {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background-color: #0c0d0f;
-    
-    /* Asymmetrical studio light sweep across the canvas */
-    background-image: 
-      radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 50%, #17191c 0%, #0c0d0f 100%);
-    background-blend-mode: screen, normal;
-}
+        /* --- 3. STUDIO LIGHT HERO AREA --- */
+        .hero-section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #0c0d0f;
+            padding: 120px 8%;
+            
+            /* Asymmetrical studio light sweep across the canvas */
+            background-image: 
+              radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 50%, #17191c 0%, #0c0d0f 100%);
+            background-blend-mode: screen, normal;
+        }
 
-.hero-content {
-    max-width: 700px;
-}
+        .hero-content {
+            max-width: 700px;
+            width: 100%;
+        }
 
-.eyebrow {
-    letter-spacing: 3px;
-    font-size: 0.8rem;
-    margin-bottom: 15px;
-}
+        .eyebrow {
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
 
-.hero-section h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 6.5rem; /* Expanded scale for a bolder editorial presence */
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    
-    /* Warm Ivory Facet Base */
-    background: linear-gradient(135deg, #fffdf9 0%, #ebdcc9 48%, #c4b299 52%, #f5eedf 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+        .hero-section h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 6.5rem; /* Expanded scale for a bolder editorial presence */
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            
+            /* Warm Ivory Facet Base */
+            background: linear-gradient(135deg, #fffdf9 0%, #ebdcc9 48%, #c4b299 52%, #f5eedf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
 
-    /* The Chiseled Edge Stack: Creates carved depth and inner rim highlights */
-    filter: 
-      drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.8))   /* Crisp top highlight rim */
-      drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.9))     /* Deep incised upper shadow */
-      drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.85));     /* Ambient cavity depth shadow */
-}
-.hero-section h2 {
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-bottom: 25px;
-}
+            /* The Chiseled Edge Stack: Creates carved depth and inner rim highlights */
+            filter: 
+              drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.8))   /* Crisp top highlight rim */
+              drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.9))     /* Deep incised upper shadow */
+              drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.85));     /* Ambient cavity depth shadow */
+        }
 
-.hero-section .subtitle {
-  color: #f4f0e6; /* Soft silk ivory */
-  font-family: 'Inter', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 300;
-  letter-spacing: -0.01em;
-}
-.hero-description {
-    font-size: 1.1rem;
-    max-width: 600px;
-}
+        .hero-section .subtitle {
+            color: #f4f0e6; /* Soft silk ivory */
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+        }
 
-.hero-buttons {
-    margin-top: 40px;
-    display: flex;
-    gap: 15px;
-}
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            color: #a39e93;
+            margin-bottom: 30px;
+        }
 
-.btn-primary,
-.btn-secondary {
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: 0.3s;
-}
+        .hero-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+        }
 
-.btn-primary {
-font-family: 'Space Mono', monospace; 
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 1rem; 
-  padding: 0 36px; 
-  height: 52px;    
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1; 
-  
-  /* Rich Liquid Gold Border */
-  border: 2px solid #dfba73; 
-  
-  /* Dark Obsidian Button Core */
-  background: linear-gradient(180deg, #16191b 0%, #2c2f33 50%, #0d0e10 55%, #222529 100%);
-  
-  /* Soft Metallic Gold Text */
-  color: #e5c17b; 
-  
-  /* Dual Shadow: Inner metallic definition + Outer warm gold ambient glow */
-  box-shadow: 
-    inset 0 1px 0px rgba(255, 255, 255, 0.1),
-    0 0 18px rgba(223, 186, 115, 0.2);
-}
+        /* --- BUTTON SCHEME --- */
+        .btn-primary,
+        .btn-secondary {
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-.btn-primary:hover {
-/* Molten Gold Surface */
-  background: linear-gradient(180deg, #f3d99d 0%, #dfba73 48%, #b89249 52%, #e5c17b 100%);
-  color: #0d0e10; /* Crisp dark text on hover */
-  border: 2px solid #f3d99d;
-  box-shadow: 
-    inset 0 1px 0px rgba(255, 255, 255, 0.4),
-    0 0 25px rgba(223, 186, 115, 0.5);
-  transform: translateY(-1px);
-}
+        .btn-primary {
+            font-family: 'Space Mono', monospace; 
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 1rem; 
+            padding: 0 36px; 
+            height: 52px;    
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1; 
+            
+            /* Rich Liquid Gold Border */
+            border: 2px solid #dfba73; 
+            
+            /* Dark Obsidian Button Core */
+            background: linear-gradient(180deg, #16191b 0%, #2c2f33 50%, #0d0e10 55%, #222529 100%);
+            
+            /* Soft Metallic Gold Text */
+            color: #e5c17b; 
+            
+            /* Dual Shadow: Inner metallic definition + Outer warm gold ambient glow */
+            box-shadow: 
+                inset 0 1px 0px rgba(255, 255, 255, 0.1),
+                0 0 18px rgba(223, 186, 115, 0.2);
+        }
 
-.btn-secondary {
-   color: #a39e93;
-  border: 1px solid rgba(223, 186, 115, 0.2); /* Faint hint of the primary gold */
-  background: transparent;
-  transition: all 0.3s ease;
-}
+        .btn-primary:hover {
+            /* Molten Gold Surface */
+            background: linear-gradient(180deg, #f3d99d 0%, #dfba73 48%, #b89249 52%, #e5c17b 100%);
+            color: #0d0e10; /* Crisp dark text on hover */
+            border: 2px solid #f3d99d;
+            box-shadow: 
+                inset 0 1px 0px rgba(255, 255, 255, 0.4),
+                0 0 25px rgba(223, 186, 115, 0.5);
+            transform: translateY(-1px);
+        }
 
-.btn-secondary:hover {
-  color: #fffdf9;
-  border-color: rgba(223, 186, 115, 0.6);
-  background: rgba(255, 255, 255, 0.02);
-}
+        .btn-secondary {
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #a39e93;
+            border: 1px solid rgba(223, 186, 115, 0.2); /* Faint hint of the primary gold */
+            background: transparent;
+            transition: all 0.3s ease;
+        }
 
-.section {
-    padding: 120px 0;
-}
+        .btn-secondary:hover {
+            color: #fffdf9;
+            border-color: rgba(223, 186, 115, 0.6);
+            background: rgba(255, 255, 255, 0.02);
+        }
 
-.section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    margin-bottom: 40px;
-}
+        /* --- 4. ABOUT & SKILLS SECTIONS --- */
+        .section {
+            padding: 120px 0;
+        }
 
-.about-text {
-    max-width: 800px;
-    margin-bottom: 40px;
-}
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: #fffdf9;
+            margin-bottom: 40px;
+        }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px; /* Slightly wider gap for an editorial layout */
-    margin-top: 40px;
-}
+        .about-text {
+            max-width: 800px;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #a39e93;
+        }
 
-.skill-card {
-    padding: 30px 25px; /* Elegant, vertical-leaning padding */
-    border-radius: 16px; /* Slightly smoother curve */
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: default;
-    
-    /* Fine-line luxury gold frame */
-    border: 1px solid rgba(223, 186, 115, 0.15); 
-    
-    /* Dark Obsidian Core (Matches button background) */
-    background: linear-gradient(135deg, #141619 0%, #0d0e10 100%);
-    
-    /* Dual Shadow: Inner rim definition + Soft depth shadow */
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.03),
-        0 4px 20px rgba(0, 0, 0, 0.4);
-}
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px; /* Slightly wider gap for an editorial layout */
+            margin-top: 40px;
+        }
 
-/* Typography inside the card */
-.skill-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #f4f0e6; /* Soft silk ivory */
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-}
+        .skill-card {
+            padding: 30px 25px; /* Elegant, vertical-leaning padding */
+            border-radius: 16px; /* Slightly smoother curve */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+            
+            /* Fine-line luxury gold frame */
+            border: 1px solid rgba(223, 186, 115, 0.15); 
+            
+            /* Dark Obsidian Core */
+            background: linear-gradient(135deg, #141619 0%, #0d0e10 100%);
+            
+            /* Dual Shadow: Inner rim definition + Soft depth shadow */
+            box-shadow: 
+                inset 0 1px 1px rgba(255, 255, 255, 0.03),
+                0 4px 20px rgba(0, 0, 0, 0.4);
+        }
 
-.skill-card p {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #a39e93; /* Muted warm stone gray */
-    line-height: 1.5;
-}
+        /* Typography inside the card */
+        .skill-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f4f0e6; /* Soft silk ivory */
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
 
-/* Interaction: Light caught on a gold plate */
-.skill-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(223, 186, 115, 0.45);
-    background: linear-gradient(135deg, #1c1f22 0%, #111315 100%);
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.05),
-        0 0 25px rgba(223, 186, 115, 0.12),
-        0 10px 30px rgba(0, 0, 0, 0.6);
-}
+        .skill-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #a39e93; /* Muted warm stone gray */
+            line-height: 1.5;
+        }
 
-.section-dark {
-    background: #1a1c1e;
-}
+        /* Interaction: Light caught on a gold plate */
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(223, 186, 115, 0.45);
+            background: linear-gradient(135deg, #1c1f22 0%, #111315 100%);
+            box-shadow: 
+                inset 0 1px 1px rgba(255, 255, 255, 0.05),
+                0 0 25px rgba(223, 186, 115, 0.12),
+                0 10px 30px rgba(0, 0, 0, 0.6);
+        }
 
-.light {
-    color: white;
-}
+        /* --- 5. FEATURED PROJECTS SECTION (VERTICAL GLIDE) --- */
+        .featured-projects {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1px; /* Razor-thin black separator line between rows */
+            background-color: rgba(223, 186, 115, 0.1); /* Subtle gold horizon tint */
+        }
 
-.featured-projects {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1px; /* Razor-thin black separator line between rows */
-    background-color: rgba(223, 186, 115, 0.1); /* Subtle gold horizon tint */
-}
+        .project-row {
+            display: grid;
+            /* Starts completely as an image cover, 0fr width for the text content */
+            grid-template-columns: 1fr 0fr; 
+            height: 480px; /* Deep luxury banner depth */
+            width: 100%;
+            overflow: hidden;
+            background: #0d0e10;
+            transition: grid-template-columns var(--transition-glide);
+        }
 
-.project-row {
-    display: grid;
-    /* Starts completely as an image cover, 0fr width for the text content */
-    grid-template-columns: 1fr 0fr; 
-    height: 480px; /* Deep luxury banner depth */
-    width: 100%;
-    overflow: hidden;
-    transition: grid-template-columns 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-}
+        /* THE HOVER SLIDE TRIGGER */
+        .project-row:hover,
+        .project-row.expanded {
+            /* Majestic slow glide opening column ratio */
+            grid-template-columns: 1.2fr 1fr; 
+        }
 
-/* THE HOVER SLIDE TRIGGER */
-.project-row:hover {
-    /* Adjust this ratio to balance how much image vs text you want to show on open */
-    grid-template-columns: 1.2fr 1fr; 
-}
+        /* Left Chamber: Image Cover */
+        .project-image-panel {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
 
-/* Left Chamber: Image Cover */
-.project-image-panel {
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 40px;
-}
+        .cover-overlay {
+            z-index: 2;
+            transition: transform var(--transition-glide), opacity var(--transition-glide);
+        }
 
-.cover-overlay {
-    z-index: 2;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
+        .cover-overlay h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: #fffdf9;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
 
-.cover-overlay h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    color: #fffdf9;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-}
+        .project-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #dfba73; /* Gold accents */
+            letter-spacing: 0.2em;
+        }
 
-.project-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #dfba73; /* Gold accents */
-    letter-spacing: 0.2em;
-}
+        /* Right Chamber: The Gliding Reveal Panel */
+        .project-content-panel {
+            background: #0d0e10;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            opacity: 0;
+            transform: translateX(30px); /* Start slightly off-screen to create a glide */
+            transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1), transform var(--transition-glide);
+            border-left: 1px solid rgba(255, 255, 255, 0.03);
+            min-height: 0;
+        }
 
-/* Right Chamber: The Gliding Reveal Panel */
-.project-content-panel {
-    background: #0d0e10;
-    display: flex;
-    align-items: center;
-    padding: 0 60px;
-    opacity: 0;
-    transform: translateX(30px); /* Start slightly off-screen to create a glide */
-    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
+        .project-row:hover .project-content-panel,
+        .project-row.expanded .project-content-panel {
+            opacity: 1;
+            transform: translateX(0); /* Glides perfectly into view */
+        }
 
-.project-row:hover .project-content-panel {
-    opacity: 1;
-    transform: translateX(0); /* Glides perfectly into view */
-}
+        .panel-inner .category {
+            color: #a39e93;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.8rem;
+        }
 
- /* --- 5. IMMERSIVE PROJECT THEATER (FULL SCREEN DECK VIEW) --- */
+        .panel-inner h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: #fffdf9;
+            margin: 10px 0 20px 0;
+        }
+
+        .panel-inner p {
+            color: #a39e93;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            max-width: 450px;
+        }
+
+        /* --- 6. IMMERSIVE PROJECT THEATER (FULL SCREEN DECK VIEW) --- */
         .theater-overlay {
             position: fixed;
             top: 0;
@@ -505,102 +551,99 @@ font-family: 'Space Mono', monospace;
             color: rgba(255, 255, 255, 0.25);
             letter-spacing: 0.05em;
         }
-        
-.panel-inner .category {
-    color: #a39e93;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.8rem;
-}
 
-.panel-inner h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    color: #fffdf9;
-    margin: 10px 0 20px 0;
-}
+        kbd {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            padding: 3px 6px;
+            font-size: 0.75rem;
+            font-family: inherit;
+            color: var(--silk-ivory);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+            margin: 0 2px;
+        }
 
-.panel-inner p {
-    color: #a39e93;
-    font-size: 0.95rem;
-    margin-bottom: 30px;
-    max-width: 450px;
-}
+        /* --- 7. ADDITIONAL SECTIONS & ARTICLES --- */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-.article-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+        .article-item {
+            background: linear-gradient(135deg, #141619 0%, #0d0e10 100%);
+            border: 1px solid rgba(223, 186, 115, 0.15);
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-.article-item {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-}
+        .article-item:hover {
+            border-color: rgba(223, 186, 115, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(223, 186, 115, 0.12);
+        }
 
-.contact-text {
-    margin-bottom: 30px;
-}
+        .contact-text {
+            margin-bottom: 30px;
+        }
 
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid #ddd;
-}
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(223, 186, 115, 0.15);
+            color: #8c877e;
+            background-color: #0c0d0f;
+        }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.8s ease;
-}
-
-@media(max-width:991px){
-
-    .hero h1{
-        font-size:3rem;
-    }
-
-    .nav-links{
-        display:none;
-    }
-     /* 
-               PREMIUM MOVEMENT MODEL:
-               On mobile, grid columns are locked to full width (1fr).
-               Instead, we animate the row height vertically by animating grid-template-rows!
-            */
-            .project-row {
-                grid-template-columns: 1fr !important;
-                grid-template-rows: 380px 0fr; /* Row 1: Cover Image, Row 2: Drawer Content (starts hidden) */
-                height: auto;
-                transition: grid-template-rows var(--transition-glide);
+        /* --- 8. MOBILE RESPONSIVE ENHANCEMENTS (HYSTERESIS & STABLE HEIGHTS) --- */
+        @media(max-width:991px){
+            header {
+                padding: 1.5rem 2rem 2.5rem 2rem;
             }
 
-            /* Scroll-triggered viewport target changes this row ratio gracefully */
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .nav-links {
+                display: none; /* Minimal focus on mobile devices */
+            }
+
+            /* PREMIUM STABILIZED MOVEMENT MODEL */
+            .project-row {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: 320px 0fr; /* Initial State: Content is hidden safely */
+                height: auto;
+                transition: grid-template-rows var(--transition-glide);
+                background: #0d0e10;
+            }
+
+            /* Scroll-triggered viewport target expands this row ratio smoothly */
             .project-row.expanded {
-                grid-template-rows: 280px 1fr; /* Image squeezes slightly, content rolls down underneath */
+                grid-template-rows: 240px 1fr; /* Image squeezes slightly, text drawer rolls down */
             }
 
             .project-image-panel {
-                height: 100%; /* Auto fill the first row track */
+                height: 100%; /* Autofill top grid track */
                 padding: 2.5rem 2rem;
                 transition: height var(--transition-glide);
             }
 
             .cover-overlay h2 {
-                font-size: 2.6rem;
+                font-size: 2.4rem;
             }
 
             /* Drawer slides down vertically and fades in when .expanded triggers */
             .project-content-panel {
                 opacity: 0 !important;
                 transform: translateY(30px) !important;
-                transition: opacity 0.4s ease, transform var(--transition-glide) !important;
+                transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1), transform var(--transition-glide) !important;
                 padding: 3.5rem 2rem;
                 border-left: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.03);
@@ -645,30 +688,22 @@ footer {
             .theater-hud {
                 bottom: 25px;
             }
+        }
 
-}
-@media (max-width: 480px) {
-            .nav-links {
-                display: none; /* Keep the navigation focus purely minimal on small phones */
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
             }
 
             .project-row {
-                grid-template-rows: 300px 0fr;
+                grid-template-rows: 280px 0fr;
             }
 
             .project-row.expanded {
-                grid-template-rows: 220px 1fr;
-            }
-
-            .project-image-panel {
-                height: 100%;
+                grid-template-rows: 200px 1fr;
             }
 
             .cover-overlay h2 {
-                font-size: 2.2rem;
+                font-size: 2.0rem;
             }
         }
