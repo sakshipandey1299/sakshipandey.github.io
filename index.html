@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshi Pandey | Marketing & Branding Portfolio</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">SP</div>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+
+        <div class="container">
+
+            <p class="eyebrow">PORTFOLIO</p>
+
+
+            <h1>
+                Sakshi Pandey
+            </h1>
+
+            <p class="subtitle">International Management Graduate | Luiss Business School</p>
+
+            <p class="hero-description">
+                Passionate about luxury brands, strategic marketing,
+                consumer insights, and business growth.
+                Exploring how storytelling and data can create
+                memorable brand experiences.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">
+                    View Projects
+                </a>
+
+                <a href="https://www.linkedin.com/in/sakshi-pandey-8b09a21aa/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                    Linkedin
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">About</h2>
+
+            <p class="about-text">
+                I am an International Management graduate with a strong
+                interest in luxury, fashion, beauty, branding, and strategic
+                marketing. My work combines business analysis, consumer
+                research, and creative thinking to develop impactful brand
+                strategies and marketing initiatives.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-card"><h3>Marketing Strategy</h3></div>
+                <div class="skill-card"><h3>Brand Positioning</h3></div>
+                <div class="skill-card"><h3>Consumer Insights</h3></div>
+                <div class="skill-card"><h3>Digital Marketing</h3></div>
+                <div class="skill-card"><h3>Market Research</h3></div>
+                <div class="skill-card"><h3>Competitive Analysis</h3></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+  <!--  <section id="projects" class="section section-dark">
+
+    <div class="container">
+
+        <h2 class="section-title light">Featured Projects</h2>
+
+        <div class="project-grid">
+
+            <a href="./assets/documents/YSL Marketing Project_Sakshi Pandey.pdf" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                <div class="project-card">
+                    <span class="project-tag">Luxury Retail Marketing</span>
+                    <h3>Saint Laurent Retail Activation Strategy</h3>
+                    <p>
+                        Designing an exclusive launch experience for the
+                        limited-edition Le 5 à 7 bag at Saint Laurent
+                        Rive Droite Paris.
+                    </p>
+                </div>
+            </a>
+
+            <a href="projects/illy-australia-expansion.html" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                <div class="project-card">
+                    <span class="project-tag">International Marketing</span>
+                    <h3>illy Australia Expansion Strategy</h3>
+                    <p>
+                        Market entry, positioning, and experiential
+                        marketing recommendations for the Australian market.
+                    </p>
+                </div>
+            </a>
+
+            <a href="./assets/documents/Valentino Business Case (2).pptx" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                <div class="project-card">
+                    <span class="project-tag">Employer Branding</span>
+                    <h3>Valentino Reimagined</h3>
+                    <p>
+                        Reimagining the under-30 employee journey through
+                        employer branding, onboarding, and engagement.
+                    </p>
+                </div>
+            </a>
+
+         </div>
+
+     </div>
+
+    </section> -->
+
+    <section id="projects" class="featured-projects">
+    <!-- Project 1 -->
+    <div class="project-row">
+        <!-- Slide 1: The Visual Cover -->
+        <div class="project-image-panel" style="background-image: url('./assets/images/YSL Portfolio/cover5.png')">
+            <div class="cover-overlay">
+                <span class="project-num">01</span>
+                <h2>Saint Laurent</h2>
+            </div>
+        </div>
+        
+        <!-- Slide 2: The Gliding Reveal Content -->
+        <div class="project-content-panel">
+            <div class="panel-inner">
+                <span class="category">Luxury Retail Marketing</span>
+                <h3>Retail Activation Strategy</h3>
+                <p>Designing an exclusive launch experience for the limited-edition Le 5 à 7 bag at Saint Laurent Rive Droite Paris.</p>
+                <a href="#" class="btn-primary" onclick="openProject('saint-laurent')">Explore Case Study</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add more rows for illy and Valentino as needed -->
+    <div class="project-row">
+        <!-- Slide 1: The Visual Cover -->
+        <div class="project-image-panel" style="background-image: url('./assets/images/Illy/cover.png')">
+            <div class="cover-overlay">
+                <span class="project-num">02</span>
+                <h2>illy</h2>
+            </div>
+        </div>
+        
+        <!-- Slide 2: The Gliding Reveal Content -->
+        <div class="project-content-panel">
+            <div class="panel-inner">
+                <span class="category">International Marketing</span>
+                <h3>illy Australia Expansion Strategy</h3>
+                <p>Market entry, positioning, and experiential marketing recommendations for the Australian market.</p>
+                <a href="#" class="btn-primary" onclick="openProject('illy')">Explore Case Study</a>
+            </div>
+        </div>
+    </div>
+    <div class="project-row">
+        <!-- Slide 1: The Visual Cover -->
+        <div class="project-image-panel" style="background-image: url('./assets/images/Valentino/cover.png')">
+            <div class="cover-overlay">
+                <span class="project-num">03</span>
+                <h2>Valentino</h2>
+            </div>
+        </div>
+        
+        <!-- Slide 2: The Gliding Reveal Content -->
+        <div class="project-content-panel">
+            <div class="panel-inner">
+                <span class="category">Employer Branding</span>
+                <h3>Valentino Reimagined</h3>
+                <p>Reimagining the under-30 employee journey through employer branding, onboarding, and engagement.</p>
+                <a href="#" class="btn-primary" onclick="openProject('valentino')">Explore Case Study</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- IMMERSIVE CHAMELEON PROJECT THEATER OVERLAY -->
+    <div id="project-theater" class="theater-overlay">
+        <!-- Close trigger -->
+        <button class="close-theater" onclick="closeProjectTheater()">&times;</button>
+        
+        <!-- Keyboard guide tip -->
+        <div class="kb-tip">Use <i class="fa-solid fa-arrow-left"></i> <i class="fa-solid fa-arrow-right"></i> keys to navigate</div>
+
+        <!-- Horizontal Snap Reel -->
+        <div class="slides-wrapper" id="slides-wrapper">
+            <!-- Slides are dynamically loaded here depending on which project button is clicked -->
+        </div>
+
+        <!-- HUD controls at bottom -->
+        <div class="theater-hud">
+             <button class="hud-arrow" onclick="slidePrev()" aria-label="Previous Slide">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div class="hud-info" id="hud-counter">Slide <span>1</span> of 3</div>
+            <button class="hud-arrow" onclick="slideNext()" aria-label="Next Slide">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+    
+
+    <section id="insights" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">Insights & Articles</h2>
+
+            <div class="article-list">
+
+                <div class="skill-card">
+                    <h3>The Rise of Quiet Luxury</h3>
+                </div>
+
+                <div class="skill-card">
+                    <h3>How Gen Z is Reshaping Luxury Consumption</h3>
+                </div>
+
+                <div class="skill-card">
+                    <h3>AI and the Future of Fashion Marketing</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">Contact</h2>
+
+            <p class="contact-text">
+                Interested in collaborating or discussing opportunities?
+            </p>
+
+            <a href="mailto:sakshi@email.com" class="btn-primary">
+                Get In Touch
+            </a>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+            © 2026 Sakshi Pandey
+        </p>
+
+    </footer>
+
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

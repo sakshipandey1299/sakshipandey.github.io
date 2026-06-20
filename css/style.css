@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0e10; /* Keeps the rest of the site seamlessly dark */
+    color:#a39e93;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    
+    /* The background color and blur */
+    background: rgba(12, 13, 15, 0.7); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* The magic fade: Opaque at the top (0%), fading to transparent at the bottom (100%) */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+
+    /* Remove any solid borders so the blend is perfectly seamless */
+    border-bottom: none; 
+    padding: 1.5rem 4rem 2.5rem 4rem; /* Added a bit more padding at the bottom for the fade radius */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #e5dfd3; /* Soft platinum/ivory tint */
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #8c877e; /* Muted stone gray */
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.nav-links a:hover {
+    color: #fffdf9; /* Bright ivory */
+    text-shadow: 0 0 8px rgba(223, 186, 115, 0.4); /* Subtle golden aura */
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 8%;
+}
+
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #0c0d0f;
+    
+    /* Asymmetrical studio light sweep across the canvas */
+    background-image: 
+      radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 50%, #17191c 0%, #0c0d0f 100%);
+    background-blend-mode: screen, normal;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.eyebrow {
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.hero-section h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6.5rem; /* Expanded scale for a bolder editorial presence */
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    
+    /* Warm Ivory Facet Base */
+    background: linear-gradient(135deg, #fffdf9 0%, #ebdcc9 48%, #c4b299 52%, #f5eedf 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* The Chiseled Edge Stack: Creates carved depth and inner rim highlights */
+    filter: 
+      drop-shadow(1px 1px 1px rgba(255, 255, 255, 0.8))   /* Crisp top highlight rim */
+      drop-shadow(-1px -1px 1px rgba(0, 0, 0, 0.9))     /* Deep incised upper shadow */
+      drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.85));     /* Ambient cavity depth shadow */
+}
+.hero-section h2 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-section .subtitle {
+  color: #f4f0e6; /* Soft silk ivory */
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+.hero-description {
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+font-family: 'Space Mono', monospace; 
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1rem; 
+  padding: 0 36px; 
+  height: 52px;    
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1; 
+  
+  /* Rich Liquid Gold Border */
+  border: 2px solid #dfba73; 
+  
+  /* Dark Obsidian Button Core */
+  background: linear-gradient(180deg, #16191b 0%, #2c2f33 50%, #0d0e10 55%, #222529 100%);
+  
+  /* Soft Metallic Gold Text */
+  color: #e5c17b; 
+  
+  /* Dual Shadow: Inner metallic definition + Outer warm gold ambient glow */
+  box-shadow: 
+    inset 0 1px 0px rgba(255, 255, 255, 0.1),
+    0 0 18px rgba(223, 186, 115, 0.2);
+}
+
+.btn-primary:hover {
+/* Molten Gold Surface */
+  background: linear-gradient(180deg, #f3d99d 0%, #dfba73 48%, #b89249 52%, #e5c17b 100%);
+  color: #0d0e10; /* Crisp dark text on hover */
+  border: 2px solid #f3d99d;
+  box-shadow: 
+    inset 0 1px 0px rgba(255, 255, 255, 0.4),
+    0 0 25px rgba(223, 186, 115, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+   color: #a39e93;
+  border: 1px solid rgba(223, 186, 115, 0.2); /* Faint hint of the primary gold */
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  color: #fffdf9;
+  border-color: rgba(223, 186, 115, 0.6);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.about-text {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px; /* Slightly wider gap for an editorial layout */
+    margin-top: 40px;
+}
+
+.skill-card {
+    padding: 30px 25px; /* Elegant, vertical-leaning padding */
+    border-radius: 16px; /* Slightly smoother curve */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+    
+    /* Fine-line luxury gold frame */
+    border: 1px solid rgba(223, 186, 115, 0.15); 
+    
+    /* Dark Obsidian Core (Matches button background) */
+    background: linear-gradient(135deg, #141619 0%, #0d0e10 100%);
+    
+    /* Dual Shadow: Inner rim definition + Soft depth shadow */
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.03),
+        0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Typography inside the card */
+.skill-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f4f0e6; /* Soft silk ivory */
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+}
+
+.skill-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #a39e93; /* Muted warm stone gray */
+    line-height: 1.5;
+}
+
+/* Interaction: Light caught on a gold plate */
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(223, 186, 115, 0.45);
+    background: linear-gradient(135deg, #1c1f22 0%, #111315 100%);
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.05),
+        0 0 25px rgba(223, 186, 115, 0.12),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.section-dark {
+    background: #1a1c1e;
+}
+
+.light {
+    color: white;
+}
+
+.featured-projects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Razor-thin black separator line between rows */
+    background-color: rgba(223, 186, 115, 0.1); /* Subtle gold horizon tint */
+}
+
+.project-row {
+    display: grid;
+    /* Starts completely as an image cover, 0fr width for the text content */
+    grid-template-columns: 1fr 0fr; 
+    height: 480px; /* Deep luxury banner depth */
+    width: 100%;
+    overflow: hidden;
+    transition: grid-template-columns 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* THE HOVER SLIDE TRIGGER */
+.project-row:hover {
+    /* Adjust this ratio to balance how much image vs text you want to show on open */
+    grid-template-columns: 1.2fr 1fr; 
+}
+
+/* Left Chamber: Image Cover */
+.project-image-panel {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+}
+
+.cover-overlay {
+    z-index: 2;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.cover-overlay h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: #fffdf9;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.project-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #dfba73; /* Gold accents */
+    letter-spacing: 0.2em;
+}
+
+/* Right Chamber: The Gliding Reveal Panel */
+.project-content-panel {
+    background: #0d0e10;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    opacity: 0;
+    transform: translateX(30px); /* Start slightly off-screen to create a glide */
+    transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.project-row:hover .project-content-panel {
+    opacity: 1;
+    transform: translateX(0); /* Glides perfectly into view */
+}
+
+ /* --- 5. IMMERSIVE PROJECT THEATER (FULL SCREEN DECK VIEW) --- */
+        .theater-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.98); /* Near solid back-stage blackout */
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .theater-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Horizontal Carousel Frame */
+        .slides-wrapper {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 120px); /* Leave room for slide pagination & counters */
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide Scrollbar for pure theater style */
+        .slides-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-slide {
+            flex: 0 0 100vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 0 5%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* --- THE 16:9 SLIDE IMAGE FRAME (PREVENTS CROPPING / ASPECT RATIO DISTORTION) --- */
+        .slide-frame {
+            position: relative;
+            width: 100%;
+            max-width: 1200px; /* Elegant presentation size */
+            aspect-ratio: 16 / 9; /* Strict presentation proportions */
+            background-color: #0d0e10; /* Soft border/shadow frame */
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 
+                        0 0 1px rgba(255, 255, 255, 0.1) inset;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255, 0.03);
+        }
+
+        .slide-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Never crop or warp slide graphics */
+            background-color: #0d0e10;
+        }
+
+        /* Minimal Luxury Close Control */
+        .close-theater {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: none;
+            border: none;
+            color: var(--stone-gray);
+            font-size: 2.2rem;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10002;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .close-theater:hover {
+            color: var(--silk-ivory);
+            transform: scale(1.1);
+        }
+
+        /* Custom Left/Right HUD Controls */
+        .theater-hud {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            z-index: 10001;
+        }
+
+        .hud-arrow {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--stone-gray);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .hud-arrow:hover {
+            border-color: var(--accent-gold);
+            color: var(--silk-ivory);
+            box-shadow: 0 0 15px rgba(223, 186, 115, 0.15);
+        }
+
+        .hud-info {
+            font-size: 0.85rem;
+            color: var(--stone-gray);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hud-info span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Keyboard Tip */
+        .kb-tip {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.05em;
+        }
+        
+.panel-inner .category {
+    color: #a39e93;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+}
+
+.panel-inner h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    color: #fffdf9;
+    margin: 10px 0 20px 0;
+}
+
+.panel-inner p {
+    color: #a39e93;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+.article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article-item {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.contact-text {
+    margin-bottom: 30px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #ddd;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+}
