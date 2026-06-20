@@ -569,5 +569,21 @@ footer {
     .nav-links{
         display:none;
     }
+    .project-row {
+    grid-template-columns: 1fr !important;
+    height: auto; /* Let the height adapt dynamically to the text */
+}
+.project-content-panel {
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 3.5rem 2rem; /* Clean, generous mobile padding */
+    border-left: none; /* Drop the desktop vertical divider */
+    border-top: 1px solid rgba(255, 255, 255, 0.03); /* Add a subtle top border instead */
+    background: #090a0b; /* Match the dark premium canvas */
+}
+.project-image-panel {
+    height: 340px; /* Constrain image height on portrait screens */
+    padding: 2.5rem 2rem;
+}
 
 }
