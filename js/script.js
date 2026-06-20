@@ -170,19 +170,23 @@
             }
         });
         
-        /* --- 7. DYNAMIC INTERSECTION OBSERVER FOR MOBILE VIEWPORTS --- */
-        // Automatically expands the vertical drawer as the user scrolls them into focus
+        /* --- 7. DYNAMIC INTERSECTION OBSERVER WITH HYSTERESIS --- */
+        // Uses a double threshold trigger system to completely stop bouncing & flickering loops
         const observerOptions = {
             root: null, // Viewport
-            rootMargin: '-15% 0px -15% 0px', // Shrink the trigger boundary area to the middle of the screen
-            threshold: 0.15 // Triggers when 15% of the card occupies this center screen boundary
+            rootMargin: '0px 0px -10% 0px', // Slight offset at the bottom to trigger early
+            threshold: [0.10, 0.40] // [Exit threshold (10%), Entry threshold (40%)]
         };
 
         const projectObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                const ratio = entry.intersectionRatio;
+                
+                if (entry.isIntersecting && ratio >= 0.40) {
+                    // Requires 40% of the element to enter the viewport before expanding
                     entry.target.classList.add('expanded');
-                } else {
+                } else if (ratio < 0.10) {
+                    // Safe guard: Card must fall below 10% on screen before collapsing back down
                     entry.target.classList.remove('expanded');
                 }
             });
