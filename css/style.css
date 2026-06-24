@@ -216,14 +216,14 @@
         .btn-secondary {
             padding: 14px 28px;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-family: 'Space Mono', monospace;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            color: #a39e93;
+            color: #e5c17b;
             border: 1px solid rgba(223, 186, 115, 0.2); /* Faint hint of the primary gold */
             background: transparent;
             transition: all 0.3s ease;
