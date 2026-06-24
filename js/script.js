@@ -196,3 +196,23 @@
         document.querySelectorAll('.project-row').forEach(row => {
             projectObserver.observe(row);
         });
+        
+                /* --- 8. TOGGLE ARTICLES IN INSIGHTS --- */
+        function toggleArticle(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Optional: Close other active articles for accordion behavior
+            document.querySelectorAll('.article-item.active').forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Toggle active state
+            if (isActive) {
+                element.classList.remove('active');
+            } else {
+                element.classList.add('active');
+            }
+        }
+        

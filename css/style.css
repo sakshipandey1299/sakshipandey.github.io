@@ -564,39 +564,129 @@
             margin: 0 2px;
         }
 
-        /* --- 7. ADDITIONAL SECTIONS & ARTICLES --- */
+         /* --- 7. DYNAMIC EXPANDABLE INSIGHTS / BLOG SYSTEM --- */
         .article-list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         .article-item {
             background: linear-gradient(135deg, #141619 0%, #0d0e10 100%);
             border: 1px solid rgba(223, 186, 115, 0.15);
-            padding: 25px;
-            border-radius: 12px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         .article-item:hover {
             border-color: rgba(223, 186, 115, 0.45);
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(223, 186, 115, 0.12);
+            box-shadow: 0 10px 40px rgba(223, 186, 115, 0.05);
         }
 
-        .contact-text {
-            margin-bottom: 30px;
+        /* Static Header Section */
+        .article-header {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(223, 186, 115, 0.15);
-            color: #8c877e;
-            background-color: #0c0d0f;
+        .article-title-block {
+            flex-grow: 1;
         }
 
+        .article-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: #f4f0e6;
+            margin-top: 6px;
+            transition: color 0.3s;
+        }
+
+        .article-item:hover .article-header h3 {
+            color: var(--accent-gold);
+        }
+
+        /* Fine-line luxury indicator chevron */
+        .article-indicator {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(223, 186, 115, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--stone-gray);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .article-item.active .article-indicator {
+            transform: rotate(180deg);
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: #0d0e10;
+        }
+
+        /* Collapsible body container (Using CSS Grid zero-fraction rows trick for flawless animations) */
+        .article-body-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .article-item.active .article-body-wrapper {
+            grid-template-rows: 1fr;
+        }
+
+        .article-inner-content {
+            overflow: hidden;
+            opacity: 0;
+            padding: 0 30px;
+            transition: opacity 0.5s ease;
+        }
+
+        .article-item.active .article-inner-content {
+            opacity: 1;
+            padding-bottom: 40px; /* Safe padding padding on reveal */
+        }
+
+        /* Rich text styling inside the blog */
+        .article-richtext {
+            border-top: 1px solid rgba(223, 186, 115, 0.1);
+            padding-top: 30px;
+            color: var(--stone-gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-richtext p {
+            margin-bottom: 20px;
+        }
+
+        .article-richtext blockquote {
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #fffdf9;
+        }
+
+        .article-richtext h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #f4f0e6;
+            margin: 30px 0 15px 0;
+        }
         /* --- 8. MOBILE RESPONSIVE ENHANCEMENTS (HYSTERESIS & STABLE HEIGHTS) --- */
         @media(max-width:991px){
             header {
